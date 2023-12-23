@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+  
+	<meta charset="UTF-8"> 
+	<link rel="icon" href="favicon.png"> 
+	<meta name="description" content="FreeFiles est un site sur lequel vous pourrez trouvez des fichiers mals sécurisés, comme des films ou des e-books, qui deviennent gratuits."> 
+	<title>FreeFiles</title>
+	<meta name="language" content="fr">
+	<link rel="icon" href="favicon.png"> 
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+
+	</style>
+
+</head>
+
+<body>
+
+	<body>
+
+	<img src="crown1.gif" width=120><br>
+
+	<h1>Free Files</h1>
+	<h2>Terms of your query:</h2>
+
+	<form>
+	
+		<label for="mot">Word(s) to find (separated by spaces):</label><textarea id="mot" placeholder="Ex: Harry Potter" name="mot"></textarea><br /><br />
+		<label for="date">Maximum publication date:</label> 
+			<select id="date" name="date">
+				<option>None</option>
+				<option>One day</option>
+				<option>One week</option>
+				<option>One month</option>
+				<option>One year</option>
+			</select><br /><br />
+		<label for="site">Search to be done only on this site:</label><input type="text" id="site" placeholder="Ex: site.com" name="site"><br />
+		<br>
+		<input type="button" style="width:100px; height: 30px"; name="button" value="Find it!" onclick="go();">
+	</form>
+	<br>
+	<br>
+	<p>For example, if you enter the words "Star Wars", you are very likely (even sure) that you come across films of the same name in an Index.</p>
+	<p>The same goes for e-books, images...</p>
+	<p>To do this, the program will search Google for poorly secured folders that contain files whose names contain your keywords.</p>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h6>Genius Tools</h6>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+<script> 
+function go(){
+	var mots=document.getElementById("mot").value;
+	var date=document.getElementById("date").value;
+	var site=document.getElementById("site").value;
+
+	date=["all","d","w","m","y"][["Tout","Un jour","Une semaine","Un mois","Un ans"].indexOf(date)];
+	date="&as_qdr="+date;
+
+	site=(site!="")?("&as_dt=i&as_sitesearch="+site):("");
+	
+	var search="https://www.google.fr/search?hl=fr"+date+site+'&q=intitle:"index of" '+mots;
+	var link=document.createElement("a");
+	link.href=search;
+	link.target="_blank";
+	link.click();
+}
+</script>
+</body>
+
+</html>

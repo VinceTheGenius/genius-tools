@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+a{
+    font-family: 'BailJamjuree';
+    color: white;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 1s;
+    font-size: 16px;
+}
+a.bouton{
+    border: transparent;
+    background-color: transparent;
+}
+h1{
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Rubik Doodle Shadow';
+}
+h2,h3,h5,h6,p,form,option{
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Single Day';
+}
+body {
+    text-align: center;
+    color:rgb(0, 195, 202);
+    background: rgb(13,16,71);
+    background: rgb(10,12,52);
+    background: linear-gradient(101deg, rgba(10,12,52,1) 0%, rgba(0,3,61,1) 15%, rgba(4,5,26,1) 65%);
+    margin:0.5cm;
+}
+
+textarea, select, input{
+    text-align: center;
+    background-color: #2d1e70;
+    color: #ffffff;
+}
