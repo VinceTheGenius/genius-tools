@@ -4,7 +4,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -30,7 +30,7 @@ h1 {
 a, p {
     text-decoration: none;
     color: #8A897C; /* Nouvelle couleur du lien */
-    font-weight: bold;
+    font-weight: normal;
     transition: color 0.3s ease-in-out;
     margin-bottom: 0em;
 }
