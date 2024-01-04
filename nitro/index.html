@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Nitro Code Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #codeInput {
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        #checkButton {
+            font-size: 16px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Discord Nitro Code Checker</h1>
+    <input type="text" id="codeInput" placeholder="Enter Nitro Code">
+    <button id="checkButton">Check Code</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('checkButton').addEventListener('click', async function() {
+            const codeInput = document.getElementById('codeInput');
+            const resultDiv = document.getElementById('result');
+            const nitroCode = codeInput.value.trim();
+
+            if (!nitroCode) {
+                resultDiv.textContent = 'Please enter a Nitro code.';
+                return;
+            }
+
+            // Replace 'YOUR_DISCORD_API_KEY' with your actual Discord API key
+            const apiKey = 'YOUR_DISCORD_API_KEY';
+            const apiUrl = `https://discord.com/api/v10/entitlements/gift-codes/${nitroCode}?with_application=true&with_subscription_plan=true`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bot ${apiKey}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    resultDiv.textContent = `Code is valid! Plan: ${data.subscription_plan.name}`;
+                } else {
+                    resultDiv.textContent = `Code is invalid. ${data.message || 'Please try again.'}`;
+                }
+            } catch (error) {
+                resultDiv.textContent = 'Error checking code. Please try again later.';
+            }
+        });
+    </script>
+</body>
+</html>
